@@ -6,6 +6,8 @@
         "**/*.map": true,
         "**/*.png": true,
         "**/*.ini": true,
-        "**/*.mp4": true
+        "**/*.mp4": true,
+        "**/*.mkv": true,
+        "**/*.webm": true,
     }
 }

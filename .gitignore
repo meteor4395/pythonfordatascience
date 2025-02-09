@@ -25,6 +25,9 @@ share/python-wheels/
 .installed.cfg
 *.egg
 *.mp4
+*.mkv
+*.webm
+
 MANIFEST
 
 # PyInstaller
