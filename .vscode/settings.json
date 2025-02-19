@@ -9,5 +9,6 @@
         "**/*.mp4": true,
         "**/*.mkv": true,
         "**/*.webm": true,
+        "**/*.pdf": true,
     }
 }

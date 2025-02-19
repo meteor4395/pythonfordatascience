@@ -24,6 +24,9 @@ from sklearn.linear_model import LogisticRegression
 # Importing performance metrics - accuracy score & confusion matrix
 from sklearn.metrics import accuracy_score,confusion_matrix
 
+import os
+os.chdir("c://uhh//nptel//python for datascience//w04")
+
 ###############################################################################
 # =============================================================================
 # Importing data
@@ -95,7 +98,7 @@ data2 = data.dropna(axis=0)
 data3 = data2.copy()
 data4 = data3.copy()
 # Realtionship between independent variables
-correlation = data2.corr()
+correlation = data2[['age', 'capitalgain', 'capitalloss', 'hoursperweek']].corr()
 
 # =============================================================================
 # Cross tables & Data Visualization
@@ -125,11 +128,11 @@ SalStat = sns.countplot(data2['SalStat'])
 """
 
 ##############  Histogram of Age  #############################
-sns.distplot(data2['age'], bins=10, kde=False)
+sns.displot(data2['age'], bins=10, kde=False)
 # People with age 20-45 age are high in frequency
 
 ############# Box Plot - Age vs Salary status #################
-sns.boxplot('SalStat', 'age', data=data2)
+sns.boxplot(data=data2,x='SalStat',y='age', )
 data2.groupby('SalStat')['age'].median()
 
 ## people with 35-50 age are more likely to earn > 50000 USD p.a
@@ -186,8 +189,7 @@ print(x)
 train_x,test_x,train_y,test_y = train_test_split(x,y,test_size=0.3, random_state=0)
 
 # Make an instance of the Model
-logistic = LogisticRegression()
-
+logistic = LogisticRegression(max_iter=1000)
 # Fitting the values for x and y
 logistic.fit(train_x,train_y)
 logistic.coef_
@@ -241,13 +243,16 @@ print(x2)
 train_x2,test_x2,train_y2,test_y2 = train_test_split(x2,y2,test_size=0.3, random_state=0)
 
 # Make an instance of the Model
-logistic2 = LogisticRegression()
+logistic2 = LogisticRegression(max_iter=1000)
 
 # Fitting the values for x and y
 logistic2.fit(train_x2,train_y2)
 
 # Prediction from test data
 prediction2 = logistic2.predict(test_x2)
+print(prediction2)
+
+cm2 = confusion_matrix(train_y2,prediction2)
 
 # Printing the misclassified values from prediction
 print('Misclassified samples: %d' % (test_y2 != prediction2).sum())

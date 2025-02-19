@@ -27,6 +27,7 @@ share/python-wheels/
 *.mp4
 *.mkv
 *.webm
+*.pdf
 
 MANIFEST
 

@@ -17,7 +17,7 @@ import seaborn as sns
 # Setting dimensions for plot 
 # =============================================================================
 
-sns.set(rc={'figure.figsize':(11.7,8.27)})
+sns.set_theme(rc={'figure.figsize':(11.7,8.27)})
 
 
 # =============================================================================
@@ -75,8 +75,7 @@ cars.isnull().sum()
 yearwise_count=cars['yearOfRegistration'].value_counts().sort_index()
 sum(cars['yearOfRegistration'] > 2018)
 sum(cars['yearOfRegistration'] < 1950)
-sns.regplot(x='yearOfRegistration', y='price', scatter=True, 
-            fit_reg=False, data=cars)
+sns.regplot(x='yearOfRegistration', y='price', scatter=True,fit_reg=False, data=cars)
 # Working range- 1950 and 2018
 
 # Variable price
@@ -94,8 +93,7 @@ power_count=cars['powerPS'].value_counts().sort_index()
 sns.distplot(cars['powerPS'])
 cars['powerPS'].describe()
 sns.boxplot(y=cars['powerPS'])
-sns.regplot(x='powerPS', y='price', scatter=True, 
-            fit_reg=False, data=cars)
+sns.regplot(x='powerPS', y='price', scatter=True,fit_reg=False, data=cars)
 sum(cars['powerPS'] > 500)
 sum(cars['powerPS'] < 10)
 # Working range- 10 and 500
@@ -365,13 +363,13 @@ residuals1=y_test-cars_predictions_lin1
 sns.regplot(x=cars_predictions_lin1, y=residuals1, scatter=True, 
             fit_reg=False)
 residuals1.describe()
-
+ 
 # =============================================================================
 # RANDOM FOREST WITH OMITTED DATA
 # =============================================================================
 
 # Model parameters
-rf = RandomForestRegressor(n_estimators = 100,max_features='auto',
+rf = RandomForestRegressor(n_estimators = 100,max_features=1.0,
                            max_depth=100,min_samples_split=10,
                            min_samples_leaf=4,random_state=1)
 
@@ -475,7 +473,7 @@ print(r2_lin_test2,r2_lin_train2)
 # =============================================================================
 
 # Model parameters
-rf2 = RandomForestRegressor(n_estimators = 100,max_features='auto',
+rf2 = RandomForestRegressor(n_estimators = 100,max_features=1.0,
                            max_depth=100,min_samples_split=10,
                            min_samples_leaf=4,random_state=1)
 

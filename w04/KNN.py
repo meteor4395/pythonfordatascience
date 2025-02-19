@@ -26,6 +26,8 @@ from sklearn.neighbors import KNeighborsClassifier
 # Importing performance metrics - accuracy score & confusion matrix
 from sklearn.metrics import accuracy_score,confusion_matrix
 
+import os
+os.chdir("c://uhh//nptel//python for datascience//w04")
 ###############################################################################
 # =============================================================================
 # Importing data
