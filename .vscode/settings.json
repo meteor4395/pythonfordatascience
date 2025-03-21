@@ -4,7 +4,7 @@
     "files.exclude": {
         "**/*.class": true,
         "**/*.map": true,
-        "**/*.png": true,
+        
         "**/*.ini": true,
         "**/*.mp4": true,
         "**/*.mkv": true,
